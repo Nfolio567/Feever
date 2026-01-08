@@ -13,9 +13,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -35,6 +37,7 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 import feever.composeapp.generated.resources.Res
+import feever.composeapp.generated.resources.feed
 import feever.composeapp.generated.resources.nullIcon
 import org.jetbrains.compose.resources.Font
 
@@ -71,9 +74,9 @@ fun App() {
   MaterialTheme {
     Column(
       modifier = Modifier
+        .background(Color(0xFFf5f5dc))
         .safeDrawingPadding()
         .fillMaxSize()
-        .background(Color.LightGray)
     ) {
       val headerRadius = 10.dp
       val manrope = Res.font.Manrope
@@ -92,12 +95,16 @@ fun App() {
         Box(
           modifier = Modifier
             .fillMaxWidth()
-            .height(60.dp)
+            .height(90.dp)
           // .border(width = 2.dp, color = Color.Black)
         ) {
           Text(
             text = "Feever",
-
+            fontFamily = FontFamily(Font(manrope)),
+            fontWeight = FontWeight(900),
+            fontSize = 40.sp,
+            modifier = Modifier
+              .padding(20.dp)
           )
         }
 
@@ -129,9 +136,23 @@ fun App() {
         }
       }
 
-      Column {
-        Row { }
-        Column { }
+      /*LazyColumn {
+
+      }*/
+
+      Row(
+        modifier = Modifier
+          .fillMaxWidth()
+          .background(Color.White)
+      ) {
+        Column {
+          Icon(
+            painter = painterResource(Res.drawable.feed),
+            contentDescription = "Feed",
+            modifier = Modifier
+              .size(50.dp)
+          )
+        }
       }
     }
   }

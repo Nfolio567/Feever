@@ -7,6 +7,8 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeHotReload)
+
+    id("com.google.gms.google-services")
 }
 
 kotlin {
@@ -21,6 +23,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
+            export("io.github.mirzemehdi:kmpnotifier:1.6.1")
             baseName = "ComposeApp"
             isStatic = true
         }
@@ -32,6 +35,8 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            // https://mvnrepository.com/artifact/io.github.mirzemehdi/kmpnotifier
+            implementation("io.github.mirzemehdi:kmpnotifier:1.6.1")
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -45,6 +50,7 @@ kotlin {
 
             // https://mvnrepository.com/artifact/com.fleeksoft.ksoup/ksoup
             implementation("com.fleeksoft.ksoup:ksoup:0.2.5")
+            api("io.github.mirzemehdi:kmpnotifier:1.6.1")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
