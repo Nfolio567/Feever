@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.composeHotReload)
 
     id("com.google.gms.google-services")
+    kotlin("plugin.serialization") version "2.3.0"
 }
 
 kotlin {
@@ -48,9 +49,17 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
-            // https://mvnrepository.com/artifact/com.fleeksoft.ksoup/ksoup
-            implementation("com.fleeksoft.ksoup:ksoup:0.2.5")
             api("io.github.mirzemehdi:kmpnotifier:1.6.1")
+            // https://mvnrepository.com/artifact/com.squareup.okio/okio
+            implementation("com.squareup.okio:okio:3.16.4")
+            // Source: https://mvnrepository.com/artifact/io.ktor/ktor-client-core
+            implementation("io.ktor:ktor-client-core:3.3.3")
+            // Source: https://mvnrepository.com/artifact/io.ktor/ktor-client-cio
+            implementation("io.ktor:ktor-client-cio:3.3.3")
+            // Source: https://mvnrepository.com/artifact/io.ktor/ktor-client-content-negotiation
+            implementation("io.ktor:ktor-client-content-negotiation:3.3.3")
+            // Source: https://mvnrepository.com/artifact/io.ktor/ktor-serialization-kotlinx-json
+            implementation("io.ktor:ktor-serialization-kotlinx-json:3.3.3")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

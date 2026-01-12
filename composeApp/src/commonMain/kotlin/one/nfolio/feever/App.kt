@@ -32,14 +32,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import feever.composeapp.generated.resources.Manrope
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import org.jetbrains.compose.resources.Font
 
+import feever.composeapp.generated.resources.Manrope
 import feever.composeapp.generated.resources.Res
 import feever.composeapp.generated.resources.feed
 import feever.composeapp.generated.resources.nullIcon
-import org.jetbrains.compose.resources.Font
 
 @Composable
 @Preview
